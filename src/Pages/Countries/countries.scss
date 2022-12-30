@@ -1,0 +1,10 @@
+@import '../../style.scss';
+
+.countries {
+  @include themify($themes) {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+}

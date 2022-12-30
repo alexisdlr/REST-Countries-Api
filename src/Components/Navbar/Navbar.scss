@@ -1,0 +1,17 @@
+@import '../../style.scss';
+
+.Navbar {
+  @include themify ($themes) {
+    display: flex;
+    align-items: center;
+    color: themed('textColor');
+    background-color: themed('elements');
+    padding: 1rem 4rem;
+    justify-content: space-between;
+
+
+    p{
+      font-weight: 600;
+    }
+  }
+}
