@@ -38,12 +38,39 @@ function SingleCountry() {
                 <img src={c.flags.svg} alt="country" />
               </div>
               <div className="country-info">
-                <h1>{c.name.common}</h1>
-                <span>Native name:{c.nativeName}</span>
-                <span>Population: {c.population}</span>
-                <span>Region: {c.region}</span>
-                <span>Subregion:</span>
+                <div >
+                  <h1>{c.name}</h1>
+                <p>
+                  <span>Native name: </span>
+                  {c.nativeName}
+                </p>
+                <p>
+                  <span>Population:</span> {c.population}
+                </p>
+                <p>
+                  <span>Region: </span>
+                  {c.region}
+                </p>
+                <p>
+                  <span>Subregion:</span> {c.subregion}
+                </p>  
+                <p>
+                  <span>Capital:</span> {c.capital}
+                </p>  
+                </div>
+                <div>
+                  <p>
+                    <span>Top level Domain: </span> {c.topLevelDomain}
+                  </p>
+                  <p>
+                    <span>Languages: </span> {c.languages[0].name}
+                  </p>
+                  <p>
+                    <span>Currencies: </span> {c.currencies[0].name}
+                  </p>
+                </div>
               </div>
+              <div> </div>
             </div>
           </div>
         ))

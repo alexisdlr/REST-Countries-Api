@@ -2,6 +2,7 @@
 
 .Home {
   @include themify($themes) {
+    min-height: 100vh;
     background-color: themed("bg");
     padding: 4rem 4rem 1rem 4rem;
 

@@ -3,7 +3,6 @@ import Country from '../../Components/Country/Country'
 import {useCountries} from '../../hooks/useCountries'
 import './countries.scss'
 function Countries({filter}) {
-  console.log(filter)
   const {countries} = useCountries()
 
   
