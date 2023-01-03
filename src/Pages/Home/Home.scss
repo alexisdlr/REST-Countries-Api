@@ -63,5 +63,15 @@
     .countries {
       margin-top: 2rem;
     }
+    .attribution {
+      color: themed('textColor');
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+      a {
+        color: inherit;
+        font-weight: bold;
+      }
+    }
   }
 }

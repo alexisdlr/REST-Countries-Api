@@ -3,9 +3,10 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Countries from "../Countries/Countries";
 import "./Home.scss";
 import { makeRequest } from "../../axios";
+import { ThreeDots } from "react-loader-spinner";
 function Home() {
   const [input, setInput] = useState("");
-  const [select, setSelect] = useState("");
+  const [loading, setLoading] = useState(false);
   const [countryFilter, setCountryFilter] = useState([]);
 
   const handleChange = (e) => {
@@ -18,7 +19,11 @@ function Home() {
   };
   const handleClick = (e) => {
     e.preventDefault();
-    makeRequest.get(`/name/` + input).then((res) => setCountryFilter(res.data));
+    setLoading(true);
+    makeRequest.get(`/name/` + input).then((res) => {
+      setCountryFilter(res.data);
+      setLoading(false);
+    });
     setInput("");
   };
   return (
@@ -34,7 +39,7 @@ function Home() {
           />
           <button onClick={handleClick}>Search</button>
         </div>
-        <select onChange={handleChangeSelect} >
+        <select onChange={handleChangeSelect}>
           <option selected={true} disabled={true}>
             Filter by Region
           </option>
@@ -46,10 +51,31 @@ function Home() {
         </select>
       </div>
       <div className="countries">
-        <Countries filter={countryFilter} />
+        {loading ? (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#4fa94d"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        ) : (
+          <Countries filter={countryFilter} />
+        )}
       </div>
-      <div >
-        <p>Coded by <a href="https://github.com/alexisdlr" target={'_blank'} >Alexis De Leon</a></p>
+      <div className="attribution">
+        <p>
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target={"_blank"}
+          > Frontend Mentor</a>.
+          Coded by{" "}
+          <a href="https://github.com/alexisdlr" target={"_blank"}>
+            Alexis De Leon.
+          </a>
+        </p>
       </div>
     </div>
   );
