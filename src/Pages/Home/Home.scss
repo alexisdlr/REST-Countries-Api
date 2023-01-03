@@ -50,7 +50,14 @@
         padding: .3rem 1rem;
         cursor: pointer;
         border: none;
+
+        &:focus {
+          border: 0;
+          outline: 0;
+        }
       }
+
+    
     }
     .countries {
       margin-top: 2rem;

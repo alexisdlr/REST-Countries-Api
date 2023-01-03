@@ -28,7 +28,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/country/:id",
+          path: "/country/:name",
           element: (
               <SingleCountry />
           ),

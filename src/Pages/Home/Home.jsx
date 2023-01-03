@@ -5,18 +5,23 @@ import "./Home.scss";
 import { makeRequest } from "../../axios";
 function Home() {
   const [input, setInput] = useState("");
+  const [select, setSelect] = useState("");
   const [countryFilter, setCountryFilter] = useState([]);
+
   const handleChange = (e) => {
     setInput(e.target.value);
-    
+  };
+  const handleChangeSelect = (e) => {
+    setSelect(e.target.value);
+    makeRequest
+      .get(`/region/` + select)
+      .then((res) => setCountryFilter(res.data));
   };
   const handleClick = (e) => {
-    e.preventDefault()
-    makeRequest
-      .get(`/name/` + input)
-      .then((res) => setCountryFilter(res.data))
+    e.preventDefault();
+    makeRequest.get(`/name/` + input).then((res) => setCountryFilter(res.data));
     setInput("");
-  }
+  };
   return (
     <div className="Home">
       <div className="top-search">
@@ -30,7 +35,7 @@ function Home() {
           />
           <button onClick={handleClick}>Search</button>
         </div>
-        <select>
+        <select onChange={handleChangeSelect} value={select}>
           <option selected={true} disabled={true}>
             Filter by Region
           </option>

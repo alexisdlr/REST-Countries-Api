@@ -1,23 +1,30 @@
-import React from 'react'
-import './country.scss'
-function Country({country}) {
-
-  const handleClick = ( ) => {
-   console.log('hola') 
-  }
+import React from "react";
+import { Link } from "react-router-dom";
+import "./country.scss";
+function Country({ country }) {
   return (
-    <div className='country' style={{cursor: 'pointer'}} onClick={handleClick}>
-      <img src={country.flags.png} alt='country' />
-      <div className='info'>
-        <h3>{country.name.common}</h3>
+    <Link to={`/country/`+ country.name.common}>
+      <div
+        className="country"
+        style={{ cursor: "pointer" }}
+      >
+        <img src={country.flags.png} alt="country" />
+        <div className="info">
+          <h3>{country.name.common}</h3>
 
-        <p><span>Population:</span> {country.population}</p>
-        <p><span>Region:</span> {country.region}</p>
-        <p><span>Capital:</span> {country.capital}</p>
-
+          <p>
+            <span>Population:</span> {country.population}
+          </p>
+          <p>
+            <span>Region:</span> {country.region}
+          </p>
+          <p>
+            <span>Capital:</span> {country.capital}
+          </p>
+        </div>
       </div>
-    </div>
-  )
+    </Link>
+  );
 }
 
-export default Country
+export default Country;
