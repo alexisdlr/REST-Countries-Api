@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Countries from "../Countries/Countries";
 import "./Home.scss";
+import { makeRequest } from "../../axios";
 function Home() {
+  const [input, setInput] = useState("");
+  const [countryFilter, setCountryFilter] = useState([]);
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    
+  };
+  const handleClick = (e) => {
+    e.preventDefault()
+    makeRequest
+      .get(`/name/` + input)
+      .then((res) => setCountryFilter(res.data))
+    setInput("");
+  }
   return (
     <div className="Home">
       <div className="top-search">
-        <input type={"text"} placeholder={"Search for a Country"} />
+        <div className="input">
+          <SearchOutlinedIcon />
+          <input
+            type={"text"}
+            placeholder={"Search for a Country"}
+            onChange={handleChange}
+            value={input}
+          />
+          <button onClick={handleClick}>Search</button>
+        </div>
         <select>
           <option selected={true} disabled={true}>
             Filter by Region
@@ -18,7 +42,7 @@ function Home() {
         </select>
       </div>
       <div className="countries">
-        <Countries />
+        <Countries filter={countryFilter} />
       </div>
     </div>
   );

@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import { DarkModeContext } from "./Context/darkModeContext";
-import Countrie from "./Pages/Countries/Countries";
 import Home from "./Pages/Home/Home";
+import SingleCountry from "./Pages/SingleCountry/SingleCountry";
 import './style.scss';
 
 function App() {
@@ -28,9 +28,9 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/countrie/:id",
+          path: "/country/:id",
           element: (
-              <Countrie />
+              <SingleCountry />
           ),
         }
       ],

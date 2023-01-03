@@ -8,14 +8,40 @@
     .top-search {
       display: flex;
       justify-content: space-between;
-      input {
+      .input {
         width: 400px;
-        border: 0;
         color: themed("textColor");
         padding: 0.6rem 2rem;
         background-color: themed("elements");
-        &::placeholder {
+        display: flex;
+        gap: 2px;
+        input {
+          width: 100%;
           color: themed("textColor");
+          background-color:transparent;
+          border: none;
+          &::placeholder {
+            color: themed("textColor");
+          }
+          &:focus-visible {
+            border: 0;
+            outline: 0;
+          }
+        }
+        button {
+          padding: .4rem 1rem;
+          border-radius: 5px;
+          background-color: transparent;
+          cursor: pointer;
+          color: themed('textColor');
+          border: 0;
+          transition: all 300ms ease-in-out;
+          &:hover {
+            opacity: .5;
+            background-color: themed('elements');
+            outline: 1px solid themed('shadow');
+          }
+
         }
       }
       select {

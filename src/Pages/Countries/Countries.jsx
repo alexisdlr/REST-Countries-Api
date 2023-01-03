@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Country from '../../Components/Country/Country'
+import {useCountries} from '../../hooks/useCountries'
 import './countries.scss'
-function Countries() {
-  const [countries, setCountries] = useState([])
-  const url = 'https://restcountries.com/v3.1/all'
+function Countries({filter}) {
+  console.log(filter)
+  const {countries} = useCountries()
 
-  const getCountries = () => {
-    fetch(url)
-    .then(res => res.json())
-    .then(data => setCountries(data))
-  }
-
-  useEffect(() => {
-    getCountries()
-  }, [])
+  
   return (
     <div className='countries'>
       {
+        
+        filter.length > 0 ? filter.map((c, i) => (
+          <Country country={c} key={i} />
+        )) :
         countries ? countries.map((country, index) => (
           <Country country={country} key={index} />
         )) : 'no data'
