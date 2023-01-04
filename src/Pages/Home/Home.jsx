@@ -4,6 +4,7 @@ import Countries from "../Countries/Countries";
 import "./Home.scss";
 import { makeRequest } from "../../axios";
 import { ThreeDots } from "react-loader-spinner";
+import Loader from "../../Components/Loader/Loader";
 function Home() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -13,9 +14,16 @@ function Home() {
     setInput(e.target.value);
   };
   const handleChangeSelect = (e) => {
-    e.target.value === 'all' ? makeRequest.get('/all/').then(res => setCountryFilter(res.data)) : makeRequest
-    .get(`/region/` + e.target.value)
-    .then((res) => setCountryFilter(res.data));
+    setLoading(true);
+    e.target.value === "all"
+      ? makeRequest.get("/all/").then((res) => {
+          setCountryFilter(res.data);
+          setLoading(false);
+        })
+      : makeRequest.get(`/region/` + e.target.value).then((res) => {
+          setCountryFilter(res.data);
+          setLoading(false);
+        });
   };
   const handleClick = (e) => {
     e.preventDefault();
@@ -39,7 +47,7 @@ function Home() {
           />
           <button onClick={handleClick}>Search</button>
         </div>
-        <select name='region' onChange={handleChangeSelect}>
+        <select name="region" onChange={handleChangeSelect}>
           <option selected={true} disabled={true}>
             Filter by Region
           </option>
@@ -53,16 +61,7 @@ function Home() {
       </div>
       <div className="countries">
         {loading ? (
-          <ThreeDots
-            height="80"
-            width="80"
-            radius="9"
-            color="#4fa94d"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-          />
+          <Loader />
         ) : (
           <Countries filter={countryFilter} />
         )}
@@ -70,9 +69,14 @@ function Home() {
       <div className="attribution">
         <p>
           Challenge by
-          <a href="https://www.frontendmentor.io?ref=challenge" target={"_blank"}
-          > Frontend Mentor</a>.
-          Coded by{" "}
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target={"_blank"}
+          >
+            {" "}
+            Frontend Mentor
+          </a>
+          . Coded by{" "}
           <a href="https://github.com/alexisdlr" target={"_blank"}>
             Alexis De Leon.
           </a>
