@@ -5,10 +5,16 @@
     min-height: 100vh;
     background-color: themed("bg");
     padding: 4rem 4rem 1rem 4rem;
-
+    @include mobile {
+      padding: 2rem 2rem 1rem 2rem;
+    }
     .top-search {
       display: flex;
       justify-content: space-between;
+      @include mobile {
+        flex-direction: column;
+        gap: 1rem;
+      }
       .input {
         width: 400px;
         color: themed("textColor");
@@ -16,6 +22,10 @@
         background-color: themed("elements");
         display: flex;
         gap: 2px;
+        @include mobile {
+          max-width: 280px;
+          padding: 0.5rem 1rem;
+        }
         input {
           width: 100%;
           color: themed("textColor");
@@ -40,7 +50,9 @@
           &:hover {
             opacity: .5;
             background-color: themed('elements');
-            outline: 1px solid themed('shadow');
+          }
+          @include mobile {
+            padding: .3rem .5rem;
           }
 
         }
@@ -55,6 +67,10 @@
         &:focus {
           border: 0;
           outline: 0;
+        }
+        @include mobile {
+          max-width: 280px;
+          padding: 1rem;
         }
       }
 
@@ -73,5 +89,6 @@
         font-weight: bold;
       }
     }
+  
   }
 }

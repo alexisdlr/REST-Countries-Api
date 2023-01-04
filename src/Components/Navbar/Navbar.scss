@@ -14,5 +14,12 @@
     p{
       font-weight: 600;
     }
+    @include mobile {
+      padding: 1rem;
+      h2, p {
+        font-size: .9rem;
+      }
+
+    }
   }
 }

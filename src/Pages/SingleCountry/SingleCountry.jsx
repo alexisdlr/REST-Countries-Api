@@ -38,39 +38,46 @@ function SingleCountry() {
                 <img src={c.flags.svg} alt="country" />
               </div>
               <div className="country-info">
-                <div >
-                  <h1>{c.name}</h1>
-                <p>
-                  <span>Native name: </span>
-                  {c.nativeName}
-                </p>
-                <p>
-                  <span>Population:</span> {c.population}
-                </p>
-                <p>
-                  <span>Region: </span>
-                  {c.region}
-                </p>
-                <p>
-                  <span>Subregion:</span> {c.subregion}
-                </p>  
-                <p>
-                  <span>Capital:</span> {c.capital}
-                </p>  
+                <div className="top-info">
+                  <div>
+                    <h1>{c.name}</h1>
+                    <p>
+                      <span>Native name: </span>
+                      {c.nativeName}
+                    </p>
+                    <p>
+                      <span>Population:</span> {c.population}
+                    </p>
+                    <p>
+                      <span>Region: </span>
+                      {c.region}
+                    </p>
+                    <p>
+                      <span>Subregion:</span> {c.subregion}
+                    </p>
+                    <p>
+                      <span>Capital:</span> {c.capital}
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <span>Top level Domain: </span> {c.topLevelDomain}
+                    </p>
+                    <p>
+                      <span>Languages: </span> {c.languages[0].name}
+                    </p>
+                    <p>
+                      <span>Currencies: </span> {c.currencies[0].name}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p>
-                    <span>Top level Domain: </span> {c.topLevelDomain}
-                  </p>
-                  <p>
-                    <span>Languages: </span> {c.languages[0].name}
-                  </p>
-                  <p>
-                    <span>Currencies: </span> {c.currencies[0].name}
-                  </p>
+                <div className="border-countries">
+                  <span>Border Countries: </span>
+                  {c.borders ? c.borders.map((item,index) => (<span key={index} className='border-country'>
+                    {item}
+                  </span>)): ' No borders'}
                 </div>
               </div>
-              <div> </div>
             </div>
           </div>
         ))
