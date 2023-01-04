@@ -27,7 +27,7 @@ function Home() {
     setInput("");
   };
   return (
-    <div className="Home">
+    <main className="Home">
       <div className="top-search">
         <div className="input">
           <SearchOutlinedIcon />
@@ -77,7 +77,7 @@ function Home() {
           </a>
         </p>
       </div>
-    </div>
+    </main>
   );
 }
 

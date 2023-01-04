@@ -7,7 +7,7 @@ import "./Navbar.scss";
 function Navbar() {
   const { darkMode, toggle } = useContext(DarkModeContext);
   return (
-    <div className="Navbar">
+    <header className="Navbar">
       <div>
         <h2>Where in the world?</h2>
       </div>
@@ -21,7 +21,7 @@ function Navbar() {
           <p>{darkMode ? "Dark Mode" : "Light Mode"}</p>
         </span>
       </div>
-    </div>
+    </header>
   );
 }
 
