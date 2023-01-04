@@ -39,7 +39,7 @@ function Home() {
           />
           <button onClick={handleClick}>Search</button>
         </div>
-        <select onChange={handleChangeSelect}>
+        <select name='region' onChange={handleChangeSelect}>
           <option selected={true} disabled={true}>
             Filter by Region
           </option>
