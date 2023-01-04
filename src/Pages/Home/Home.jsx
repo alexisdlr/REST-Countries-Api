@@ -13,9 +13,9 @@ function Home() {
     setInput(e.target.value);
   };
   const handleChangeSelect = (e) => {
-    makeRequest
-      .get(`/region/` + e.target.value)
-      .then((res) => setCountryFilter(res.data));
+    e.target.value === 'all' ? makeRequest.get('/all/').then(res => setCountryFilter(res.data)) : makeRequest
+    .get(`/region/` + e.target.value)
+    .then((res) => setCountryFilter(res.data));
   };
   const handleClick = (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ function Home() {
           <option selected={true} disabled={true}>
             Filter by Region
           </option>
+          <option value="all">All</option>
           <option value="africa">Africa</option>
           <option value="americas">America</option>
           <option value="asia">Asia</option>
