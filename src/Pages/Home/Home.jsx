@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Countries from "../Countries/Countries";
 import "./Home.scss";
@@ -6,19 +6,50 @@ import Loader from "../../Components/Loader/Loader";
 import useCountries from "../../hooks/useCountries";
 import SelectCountry from "../../Components/SelectCountry";
 function Home() {
-  const { countries, loading, setLoading} = useCountries()
-  const [filter, setFilter] = useState([])
+  const { countries, loading } = useCountries();
+  const [filter, setFilter] = useState([]);
   const [input, setInput] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
+  function debounce(func, wait) {
+    let timeout;
+
+    return function executedFunction(...args) {
+      const later = () => {
+        timeout = null;
+        func(...args);
+      };
+
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
 
   const handleChange = (e) => {
     setInput(e.target.value);
   };
-  
-  const handleClick = (e) => {
-    e.preventDefault();
-    setFilter(countries.filter(c => c.name === e.target.value));
-    setInput("");
-  };
+
+  const searchCountries = useCallback(
+    debounce((value) => {
+      setDebouncedSearchTerm(value);
+    }, 500),
+    []
+  );
+
+  useEffect(() => {
+    searchCountries(input);
+  }, [input, searchCountries]);
+
+  useEffect(() => {
+    const filtered = countries.filter(
+      (country) =>
+        ["US", "BR", "IS", "AF", "AX", "AL", "DZ", "DE"].includes(
+          country.alpha2Code
+        ) &&
+        country.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+    );
+    setFilter(filtered);
+  }, [countries, debouncedSearchTerm]);
   return (
     <main className="Home">
       <div className="top-search">
@@ -30,16 +61,11 @@ function Home() {
             onChange={handleChange}
             value={input}
           />
-          <button onClick={handleClick}>Search</button>
         </div>
-       <SelectCountry setFilter={setFilter} />
+        <SelectCountry setFilter={setFilter} />
       </div>
       <div className="countries">
-        {loading ? (
-          <Loader />
-        ) : (
-          <Countries filter={filter} />
-        )}
+        {loading ? <Loader /> : <Countries filter={filter} />}
       </div>
       <div className="attribution">
         <p>

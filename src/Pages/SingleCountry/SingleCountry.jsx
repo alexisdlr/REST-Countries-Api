@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { makeRequest } from "../../axios";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./SingleCountry.scss";
+import useCountries from "../../hooks/useCountries";
 function SingleCountry() {
   const countryName = useLocation().pathname.split("/")[2];
   const [currentCountry, setCurrentCountry] = useState({});
+  const { countries } = useCountries();
 
   const getCurrentCountry = () => {
-    makeRequest
-      .get("/name/" + countryName)
-      .then((res) => setCurrentCountry(res.data));
+    console.log(countryName)
+    setCurrentCountry(countries.filter((c) => c.name == countryName));
   };
   useEffect(() => {
     getCurrentCountry();
@@ -73,9 +73,13 @@ function SingleCountry() {
                 </div>
                 <div className="border-countries">
                   <span>Border Countries: </span>
-                  {c.borders ? c.borders.map((item,index) => (<span key={index} className='border-country'>
-                    {item}
-                  </span>)): ' No borders'}
+                  {c.borders
+                    ? c.borders.map((item, index) => (
+                        <span key={index} className="border-country">
+                          {item}
+                        </span>
+                      ))
+                    : " No borders"}
                 </div>
               </div>
             </div>
