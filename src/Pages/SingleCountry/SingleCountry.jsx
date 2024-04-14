@@ -28,25 +28,25 @@ function SingleCountry() {
           </div>
           <div className="country-container">
             <div className="country-img">
-              <img src={c.flags.svg} alt="country" />
+              <img src={currentCountry.flags.svg} alt="country" />
             </div>
             <div className="country-info">
               <div className="top-info">
                 <div>
-                  <h1>{c.name}</h1>
+                  <h1>{currentCountry.name}</h1>
                   <p>
                     <span>Native name: </span>
-                    {c.nativeName}
+                    {currentCountry.nativeName}
                   </p>
                   <p>
-                    <span>Population:</span> {c.population}
+                    <span>Population:</span> {currentCountry.population}
                   </p>
                   <p>
                     <span>Region: </span>
-                    {c.region}
+                    {currentCountry.region}
                   </p>
                   <p>
-                    <span>Subregion:</span> {c.subregion}
+                    <span>Subregion:</span> {currentCountry.subregion}
                   </p>
                   <p>
                     <span>Capital:</span> {c.capital}
@@ -54,19 +54,19 @@ function SingleCountry() {
                 </div>
                 <div>
                   <p>
-                    <span>Top level Domain: </span> {c.topLevelDomain}
+                    <span>Top level Domain: </span> {currentCountry.topLevelDomain}
                   </p>
                   <p>
-                    <span>Languages: </span> {c.languages[0].name}
+                    <span>Languages: </span> {currentCountry.languages[0].name}
                   </p>
                   <p>
-                    <span>Currencies: </span> {c.currencies[0].name}
+                    <span>Currencies: </span> {currentCountry.currencies[0].name}
                   </p>
                 </div>
               </div>
               <div className="border-countries">
                 <span>Border Countries: </span>
-                {c.borders
+                {currentCountry.borders
                   ? c.borders.map((item, index) => (
                       <span key={index} className="border-country">
                         {item}
