@@ -12,7 +12,7 @@ function SingleCountry() {
   return (
     <>
       {currentCountry ? (
-        <div key={index} className="SingleCountry">
+        <div className="SingleCountry">
           <div className="button-container">
             <Link
               to="/"
