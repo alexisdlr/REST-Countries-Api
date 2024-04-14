@@ -5,11 +5,14 @@ export const useCountriesStore = create((set) => ({
   countries: [],
   fetchCountries: async () => {
     try {
+      set({ loading: true })
       const {data} = await makeRequest.get('/all')
-      console.log(data)
       set({ countries: data })
     } catch (error) {
       console.log(error)
+    }
+    finally {
+      set({ loading: false })
     }
   },
   loading: false,

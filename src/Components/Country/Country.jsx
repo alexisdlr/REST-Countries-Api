@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./country.scss";
 function Country({ country, index }) {
+  const formattedName = country.name.toLowerCase().split(' ').join('-');
   const variants = {
     hidden: {
       opacity: 0,
@@ -24,7 +25,7 @@ function Country({ country, index }) {
       variants={variants}
       viewport={{ once: true }}
     >
-      <Link to={`/country/` + country.name} style={{ textDecoration: "none" }}>
+      <Link to={`/country/` + formattedName} style={{ textDecoration: "none" }}>
         <div className="country" style={{ cursor: "pointer" }}>
           <img src={country.flags.png} alt="country" />
           <div className="info">

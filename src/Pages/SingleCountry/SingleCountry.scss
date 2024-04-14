@@ -1,8 +1,21 @@
 @import "../../style.scss";
 
+.NotFound {
+  @include themify($themes) {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: themed("bg");
+    color: themed("textColor");
+    font-size: 2rem;
+  }
+
+}
+
 .SingleCountry {
   @include themify($themes) {
-    min-height: 100vh;
+    height: 100%;
     background-color: themed("bg");
     color: themed("textColor");
     padding: 2rem 4rem;

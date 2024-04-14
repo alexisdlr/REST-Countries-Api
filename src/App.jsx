@@ -19,7 +19,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? 'dark': 'light'}`}>
+      <div className={`theme-${darkMode ? 'dark': 'light'}`} style={{height: '100%'}}>
         <Navbar />
         <Outlet />
       </div>

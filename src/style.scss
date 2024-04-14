@@ -9,6 +9,9 @@ body {
   overflow-x: hidden;
 }
 
+html, body, #root {
+  height: 100%;
+}
 //Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
 // Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
 //Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
