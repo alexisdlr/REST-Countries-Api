@@ -8,13 +8,24 @@
     background-color: themed('elements');
     padding: 1rem 4rem;
     justify-content: space-between;
+    box-shadow: 0 0 10px 0 themed('shadow');
     position: sticky;
     top: 0;
     z-index: 99;
 
     p{
-      font-weight: 600;
+      font-weight: 500;
     }
+    button {
+      background-color: transparent;
+      border: none;
+      color: themed('textColor');
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }	
     @include mobile {
       padding: 1rem;
       h2, p {

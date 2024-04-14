@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./SingleCountry.scss";
-import useCountries from "../../hooks/useCountries";
+import { useCountriesStore } from "../../store/countries-store";
 function SingleCountry() {
   const countryName = useLocation().pathname.split("/")[2];
   const [currentCountry, setCurrentCountry] = useState({});
-  const { countries } = useCountries();
+  const { countries } = useCountriesStore();
 
   const getCurrentCountry = () => {
     console.log(countryName)

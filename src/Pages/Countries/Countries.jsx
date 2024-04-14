@@ -1,10 +1,9 @@
 import React from "react";
 import Country from "../../Components/Country/Country";
 import "./countries.scss";
-import useCountries from "../../hooks/useCountries";
-import { AnimatePresence } from "framer-motion";
+import { useCountriesStore } from "../../store/countries-store";
 function Countries({ filter }) {
-  const { countries } = useCountries();
+  const { countries } = useCountriesStore();
   return (
     <div className="countries">
       {filter.length > 0

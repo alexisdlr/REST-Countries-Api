@@ -3,10 +3,10 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Countries from "../Countries/Countries";
 import "./Home.scss";
 import Loader from "../../Components/Loader/Loader";
-import useCountries from "../../hooks/useCountries";
 import SelectCountry from "../../Components/SelectCountry";
+import { useCountriesStore } from "../../store/countries-store";
 function Home() {
-  const { countries, loading } = useCountries();
+  const { countries, loading } = useCountriesStore();
   const [filter, setFilter] = useState([]);
   const [input, setInput] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");

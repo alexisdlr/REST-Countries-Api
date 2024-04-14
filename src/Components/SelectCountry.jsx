@@ -1,8 +1,8 @@
 import React from "react";
-import useCountries from "../hooks/useCountries";
+import { useCountriesStore } from "../store/countries-store";
 
 const SelectCountry = ({setFilter}) => {
-  const {countries} = useCountries()
+  const {countries} = useCountriesStore();
 
   const handleChangeSelect = (e) => {
     setFilter(countries.filter(c => c.region === e.target.value))
