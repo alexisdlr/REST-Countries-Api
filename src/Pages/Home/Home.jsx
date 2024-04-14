@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
+import { SelectCountry, Loader } from "../components";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import Countries from "../Countries/Countries";
-import "./Home.scss";
-import Loader from "../../Components/Loader/Loader";
-import SelectCountry from "../../Components/SelectCountry";
 import { useCountriesStore } from "../../store/countries-store";
+import "./Home.scss";
 function Home() {
   const { countries, loading } = useCountriesStore();
   const [filter, setFilter] = useState([]);

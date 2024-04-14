@@ -21,7 +21,7 @@ function Country({ country, index }) {
     <motion.div
       initial={"hidden"}
       whileInView={"visible"}
-      custom={{ delay: (index + 1) * 0.1 }}
+      custom={{ delay: (index + 1) * 0.03 }}
       variants={variants}
       viewport={{ once: true }}
     >

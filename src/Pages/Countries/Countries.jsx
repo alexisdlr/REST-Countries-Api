@@ -1,5 +1,5 @@
 import React from "react";
-import Country from "../../Components/Country/Country";
+import {Country} from "../../components";
 import "./countries.scss";
 import { useCountriesStore } from "../../store/countries-store";
 function Countries({ filter }) {
