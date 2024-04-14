@@ -66,7 +66,7 @@ function SingleCountry() {
               <div className="border-countries">
                 <span>Border Countries: </span>
                 {currentCountry.borders
-                  ? c.borders.map((item, index) => (
+                  ? currentCountry.borders.map((item, index) => (
                       <span key={index} className="border-country">
                         {item}
                       </span>
