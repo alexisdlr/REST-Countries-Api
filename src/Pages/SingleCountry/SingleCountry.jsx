@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./SingleCountry.scss";
@@ -49,7 +48,7 @@ function SingleCountry() {
                     <span>Subregion:</span> {currentCountry.subregion}
                   </p>
                   <p>
-                    <span>Capital:</span> {c.capital}
+                    <span>Capital:</span> {currentCountry.capital}
                   </p>
                 </div>
                 <div>
