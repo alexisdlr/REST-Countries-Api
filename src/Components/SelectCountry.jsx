@@ -9,7 +9,7 @@ const SelectCountry = ({setFilter}) => {
   };
   return (
     <select name="region" onChange={handleChangeSelect}>
-      <option selected={true} disabled={true}>
+      <option defaultValue={true} disabled={true}>
         Filter by Region
       </option>
       <option value="all">All</option>

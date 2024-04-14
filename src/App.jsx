@@ -14,8 +14,8 @@ function App() {
 
   useEffect(() => {
     fetchCountries();
-  }, [fetchCountries]);
-  
+  }, []);
+
 
   const Layout = () => {
     return (

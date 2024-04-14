@@ -64,9 +64,7 @@ function Home() {
         </div>
         <SelectCountry setFilter={setFilter} />
       </div>
-      <div className="countries">
         {loading ? <Loader /> : <Countries filter={filter} />}
-      </div>
       <div className="attribution">
         <p>
           Challenge by

@@ -2,12 +2,13 @@
 
 .countries {
   @include themify($themes) {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    flex-wrap: wrap;
+    justify-items: center; 
+
     @include mobile {
-      justify-content: center;
+      grid-template-columns: 1fr;
     }
   }
 }

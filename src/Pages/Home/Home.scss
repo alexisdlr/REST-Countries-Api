@@ -7,7 +7,7 @@
     transition: background-color 1s;
     padding: 4rem 4rem 1rem 4rem;
     @include mobile {
-      padding: 2rem 2rem 1rem 2rem;
+      padding: 1rem;
     }
     .top-search {
       display: flex;
