@@ -1,9 +1,9 @@
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useThemeStore } from "../../store/theme-store";
-import "./Navbar.scss";
+import "./navbar.scss";
 
-function Navbar() {
+export function Navbar() {
   const { darkMode ,toggleDarkMode } = useThemeStore();
   return (
     <header className="Navbar">
@@ -23,4 +23,3 @@ function Navbar() {
   );
 }
 
-export default Navbar;

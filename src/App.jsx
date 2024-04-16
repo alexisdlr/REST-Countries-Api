@@ -1,10 +1,11 @@
+import { useEffect } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Home from "./Pages/Home/Home";
 import { useThemeStore } from "./store/theme-store";
 import { useCountriesStore } from "./store/countries-store";
-import { useEffect } from "react";
-import Navbar from "./components/navbar/Navbar";
+import { Navbar } from "./components";
 import CountryDetails from "./pages/country-detail/country-detail";
+import Home from "./pages/home/home";
+
 import "./style.scss";
 import "./app.scss";
 

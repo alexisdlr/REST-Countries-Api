@@ -1,15 +1,16 @@
-import React from "react";
+import { useThemeStore } from "../../store/theme-store";
 import { ThreeDots } from "react-loader-spinner";
-import "./Loader.scss";
+import "./loader.scss";
 
 export function Loader() {
+  const {darkMode} = useThemeStore();
   return (
     <div className="Loader">
       <ThreeDots
         height="80"
         width="80"
         radius="9"
-        color="#4fa94d"
+        color={darkMode ? "#fff" : "#000"}
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""
