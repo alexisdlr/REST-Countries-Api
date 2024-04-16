@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
+import { resolve } from 'node:path';
 
 
 // vite.config.js
@@ -10,8 +10,8 @@ export default defineConfig({
   // Otras opciones de configuración...
   resolve: {
     alias: {
-      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      '@pages': fileURLToPath(new URL('./src/pages', import.meta.url))
+      '@components': resolve(__dirname, 'src/components'),
+      '@pages': resolve(__dirname, 'src/pages'),
       // Otros alias según sea necesario
     },
   },
