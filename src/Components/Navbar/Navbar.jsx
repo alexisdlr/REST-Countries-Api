@@ -3,7 +3,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useThemeStore } from "../../store/theme-store";
 import "./navbar.scss";
 
-export function Navbar() {
+function Navbar() {
   const { darkMode ,toggleDarkMode } = useThemeStore();
   return (
     <header className="Navbar">
@@ -23,3 +23,4 @@ export function Navbar() {
   );
 }
 
+export default Navbar;

@@ -1,6 +1,6 @@
-import { Country } from "../../components";
 import "./countries.scss";
 import { useCountriesStore } from "../../store/countries-store";
+import Country from "../../Components/Country/Country";
 
 function Countries({ filter }) {
   const { countries } = useCountriesStore();

@@ -2,7 +2,7 @@ import { useThemeStore } from "../../store/theme-store";
 import { ThreeDots } from "react-loader-spinner";
 import "./loader.scss";
 
-export function Loader() {
+ function Loader() {
   const {darkMode} = useThemeStore();
   return (
     <div className="Loader">
@@ -19,4 +19,6 @@ export function Loader() {
     </div>
   );
 }
+
+export default Loader;
 
