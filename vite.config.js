@@ -10,8 +10,8 @@ export default defineConfig({
   // Otras opciones de configuración...
   resolve: {
     alias: {
-      '@components': resolve(__dirname, 'src/components'),
-      '@pages': resolve(__dirname, 'src/pages'),
+      '@components': resolve(__dirname, './src/components'),
+      '@pages': resolve(__dirname, './src/pages'),
       // Otros alias según sea necesario
     },
   },
