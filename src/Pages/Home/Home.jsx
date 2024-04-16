@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useCountriesStore } from "../../store/countries-store";
-import Countries from "../countries/countries";
+import Countries from "../Countries/Countries";
 import "./Home.scss";
 import SelectCountry from "../../Components/select-country";
 import Loader from "../../Components/Loader/Loader";
