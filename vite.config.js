@@ -9,8 +9,8 @@ export default defineConfig({
   // Otras opciones de configuración...
   resolve: {
     alias: {
-      '@components': './src/components',
-      '@pages': './src/pages'
+      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+      '@pages': fileURLToPath(new URL('./src/pages', import.meta.url))
       // Otros alias según sea necesario
     },
   },
