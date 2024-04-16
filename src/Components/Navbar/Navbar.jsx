@@ -1,7 +1,7 @@
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { useThemeStore } from "../../store/theme-store";
-import "./navbar.scss";
+import "./Navbar.scss";
 
 function Navbar() {
   const { darkMode ,toggleDarkMode } = useThemeStore();

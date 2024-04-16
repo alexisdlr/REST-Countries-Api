@@ -1,6 +1,6 @@
 import { useThemeStore } from "../../store/theme-store";
 import { ThreeDots } from "react-loader-spinner";
-import "./loader.scss";
+import "./Loader.scss";
 
  function Loader() {
   const {darkMode} = useThemeStore();
