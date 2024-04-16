@@ -4,7 +4,7 @@ import { useCountriesStore } from "../../store/countries-store";
 import Countries from "../countries/Countries";
 import "./Home.scss";
 import SelectCountry from "../../components/select-country";
-import Loader from "../../Components/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const { countries, loading } = useCountriesStore();
