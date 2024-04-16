@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve } from 'node:path';
+import {resolve} from 'path'; // Utiliza 'path' en lugar de 'node:url'
 
 
 // vite.config.js
