@@ -1,4 +1,4 @@
-import { Country } from "@/components";
+import { Country } from "../../components";
 import "./countries.scss";
 import { useCountriesStore } from "../../store/countries-store";
 

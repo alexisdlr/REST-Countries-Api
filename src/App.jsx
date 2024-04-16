@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useThemeStore } from "./store/theme-store";
 import { useCountriesStore } from "./store/countries-store";
-import { Navbar } from "@/components";
-import CountryDetails from "@/pages/country-detail/country-detail";
-import Home from "@/pages/home/home";
+import { Navbar } from "./components";
+import CountryDetails from "./pages/country-detail/country-detail";
 
 import "./style.scss";
 import "./app.scss";
+import Home from "./pages/home/home";
 
 function App() {
   const { darkMode } = useThemeStore();
