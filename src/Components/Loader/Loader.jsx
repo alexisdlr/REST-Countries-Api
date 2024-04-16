@@ -2,7 +2,7 @@ import React from "react";
 import { ThreeDots } from "react-loader-spinner";
 import "./Loader.scss";
 
-function Loader() {
+export function Loader() {
   return (
     <div className="Loader">
       <ThreeDots
@@ -19,4 +19,3 @@ function Loader() {
   );
 }
 
-export default Loader;

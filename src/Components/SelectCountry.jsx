@@ -1,7 +1,7 @@
 import React from "react";
 import { useCountriesStore } from "../store/countries-store";
 
-const SelectCountry = ({setFilter}) => {
+export const SelectCountry = ({setFilter}) => {
   const {countries} = useCountriesStore();
 
   const handleChangeSelect = (e) => {
@@ -22,4 +22,3 @@ const SelectCountry = ({setFilter}) => {
   );
 };
 
-export default SelectCountry;

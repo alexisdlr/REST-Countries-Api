@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./country.scss";
-function Country({ country, index }) {
+
+export function Country({ country, index }) {
   const formattedName = country.name.toLowerCase().split(' ').join('-');
   const variants = {
     hidden: {
@@ -45,5 +46,4 @@ function Country({ country, index }) {
     </motion.div>
   );
 }
-
-export default Country;
+ 

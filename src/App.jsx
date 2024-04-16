@@ -1,26 +1,28 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Pages/Home/Home";
-import SingleCountry from "./Pages/SingleCountry/SingleCountry";
-import './style.scss';
-import './app.scss';
 import { useThemeStore } from "./store/theme-store";
 import { useCountriesStore } from "./store/countries-store";
 import { useEffect } from "react";
+import Navbar from "./components/navbar/Navbar";
+import CountryDetails from "./pages/country-detail/country-detail";
+import "./style.scss";
+import "./app.scss";
 
 function App() {
   const { darkMode } = useThemeStore();
 
-  const  {fetchCountries} = useCountriesStore();
+  const { fetchCountries } = useCountriesStore();
 
   useEffect(() => {
     fetchCountries();
   }, []);
 
-
   const Layout = () => {
     return (
-      <div className={`theme-${darkMode ? 'dark': 'light'}`} style={{height: '100%'}}>
+      <div
+        className={`theme-${darkMode ? "dark" : "light"}`}
+        style={{ height: "100%" }}
+      >
         <div className="container-all">
           <Navbar />
           <Outlet />
@@ -40,10 +42,8 @@ function App() {
         },
         {
           path: "/country/:name",
-          element: (
-              <SingleCountry />
-          ),
-        }
+          element: <CountryDetails />,
+        },
       ],
     },
   ]);

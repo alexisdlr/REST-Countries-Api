@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useCountriesStore } from "../../store/countries-store";
-import "./SingleCountry.scss";
-function SingleCountry() {
+import "./country-detail.scss";
+
+function CountryDetails() {
   const { countries } = useCountriesStore();
   const countryName = useLocation().pathname.split("/")[2];
   const currentCountry = countries.find(
@@ -85,4 +86,4 @@ function SingleCountry() {
   );
 }
 
-export default SingleCountry;
+export default CountryDetails;
